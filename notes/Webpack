@@ -1,0 +1,41 @@
+WebPack is a build tool that helps us load all of our dependencies (reminds me of maven and pom.xml in java)
+(css, imgs, node moduals, +)
+Babel and Webpack work well together and help automate the conversions...
+
+To get started working with webpack we need to setup a package json file for dependencies
+
+To apply web pack we type in terminal:
+npm init
+
+This is what we use to setup our module documentation
+The package json file is our module documentation. It contains info about our project and all of our dependencies
+
+install webpack dependency
+sudo npm install -g webpack
+
+install babel loader -helps us process es6 and turn it into es5
+npm install --save-dev babel-loader
+
+Now we need a webpack.config file
+Standard file that follows the syntax of webpack
+
+We set module.exports that is set to an object that contains info about our project
+entry point is our script.js
+output is an object that uses filename as our key and bundle as the filename (value)
+module is an object that contains loaders - loaders is set = to an array, where we pass info that we want to load.
+test is looking for any files that end in .js,
+
+module.exports {
+  entry: './script.js'
+  output: {filename: "bundle.js"},
+  module: {
+    loaders: [
+        {test: /\.js?/, loader: 'babel-loader', exclude: /node_modules/}
+    ]
+  }
+};
+
+once this is setup we can run:  webpack
+
+This will enable all of our transformation
+npm install babel-preset-env@1.6.0 --save-dev
